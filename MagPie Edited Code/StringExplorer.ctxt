@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=StringExplorer
+comment0.text=\r\n\ A\ program\ to\ allow\ students\ to\ try\ out\ different\ \r\n\ String\ methods.\ \r\n\ @author\ Laurie\ White\r\n\ @version\ April\ 2012\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=statement\ goal\ startPos
+comment2.target=int\ findKeyword(java.lang.String,\ java.lang.String,\ int)
+comment2.text=\r\n\ Search\ for\ one\ word\ in\ phrase.\ The\ search\ is\ not\ case\r\n\ sensitive.\ This\ method\ will\ check\ that\ the\ given\ goal\r\n\ is\ not\ a\ substring\ of\ a\ longer\ string\ (so,\ for\r\n\ example,\ "I\ know"\ does\ not\ contain\ "no").\r\n\r\n\ @param\ statement\r\n\ \ \ \ \ \ \ \ \ \ \ \ the\ string\ to\ search\r\n\ @param\ goal\r\n\ \ \ \ \ \ \ \ \ \ \ \ the\ string\ to\ search\ for\r\n\ @param\ startPos\r\n\ \ \ \ \ \ \ \ \ \ \ \ the\ character\ of\ the\ string\ to\ begin\ the\r\n\ \ \ \ \ \ \ \ \ \ \ \ search\ at\r\n\ @return\ the\ index\ of\ the\ first\ occurrence\ of\ goal\ in\r\n\ \ \ \ \ \ \ \ \ statement\ or\ -1\ if\ it's\ not\ found\r\n
+numComments=3
