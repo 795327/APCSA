@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.target=Test1Corrections
-comment0.text=\r\n\ TestOneCorrections\r\n\r\n\ @author\ (Noel\ Salmeron)\r\n\ @version\ (1001)\r\n
-comment1.params=
-comment1.target=void\ main()
-comment2.params=nums
-comment2.target=double\ average(int[])
-numComments=3

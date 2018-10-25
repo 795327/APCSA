@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=MazeWalker
+comment0.text=\r\n\ MazeWalker\r\n\ \r\n\ @author\ (Noel\ Salmeron)\ \r\n\ @version\ (830)\r\n
+comment1.params=
+comment1.target=MazeWalker()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ MazeWalker\r\n
+comment2.params=maze\ mazeBot
+comment2.target=void\ walkMaze(Maze,\ MazeBot)
+comment3.params=
+comment3.target=void\ run()
+numComments=4
