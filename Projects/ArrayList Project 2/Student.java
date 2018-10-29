@@ -5,29 +5,55 @@
  * @author (Noel Salmeron)
  * @version (1025)
  */
-public class Student
-{
+public class Student{
     // instance variables - replace the example below with your own
-    private int x;
+    private Student student;
 
     /**
      * Constructor for objects of class Student
      */
-    public Student()
-    {
-        // initialise instance variables
-        x = 0;
+    public Student(String name, int GPA, int studNum){
+        //how do i make var student contain all of these values?
+        student = Student(String name, int GPA, int studNum);
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public void setFirstName(String firstName){
+        studFirstName = firstName;
+    }
+
+    public String getFirstName(){
+        return studFirstName;
+    }
+
+    public void setMiddleName(String middleName){
+        studMiddleName = middleName;
+    }
+
+    public String getMiddleName(){
+        return studMiddleName;
+    }
+
+    public void setLastName(String lastName){
+        studLastName = lastName;
+    }
+
+    public String getLastName(){
+        return studLastName;
+    }
+    
+    public void setStuNum(int stuNum){
+        studNum = stuNum;
+    }
+
+    public int getStuNum(){
+        return studNum;
+    }
+    
+    public void setStuGPA(double stuGPA){
+        studGPA = stuGPA;
+    }
+
+    public double getStuGPA(){
+        return studGPA;
     }
 }

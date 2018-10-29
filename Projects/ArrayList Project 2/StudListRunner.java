@@ -5,29 +5,31 @@
  * @author (Noel Salmeron)
  * @version (1025)
  */
-public class StudListRunner
-{
-    // instance variables - replace the example below with your own
-    private int x;
+import java.util.Scanner;
+import java.util.ArrayList;
+public class StudListRunner{
+    // declares and initializes new student list
+    static StudList studList = new StudList();
+    // declares and initializes new Scanner object for user input
+    static Scanner reader = new Scanner(System.in);
+    // declares and initializes new ArrayList of student objects
+    ArrayList<Student> students = new ArrayList<Student>();
 
-    /**
-     * Constructor for objects of class StudListRunner
-     */
-    public StudListRunner()
-    {
-        // initialise instance variables
-        x = 0;
-    }
+    public static void main(){
+        // while loop that runs a main menu for the user to pick an activity
+        // and then calls the method corresponding to the activity selected
+        while(true){
+            int menuNumber = studList.menuNumber(reader);
+            if (menuNumber == 1){
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+            }
+            if (menuNumber == 2){
+
+            }
+            if (menuNumber == 3){
+
+            }
+        }
+
     }
 }
