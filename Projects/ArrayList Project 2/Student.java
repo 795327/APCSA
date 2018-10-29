@@ -5,55 +5,55 @@
  * @author (Noel Salmeron)
  * @version (1025)
  */
+import java.util.ArrayList;
 public class Student{
-    // instance variables - replace the example below with your own
-    private Student student;
+    //instance variables
+    Student student;
+    String firstName;
+    String middleName;
+    String lastName;
+    String name;
+    int stuNumber;
+    double gpa;
 
     /**
      * Constructor for objects of class Student
      */
-    public Student(String name, int GPA, int studNum){
-        //how do i make var student contain all of these values?
-        student = Student(String name, int GPA, int studNum);
+    public Student(String studName, double studGPA, int studNum){
+        name = studName;
+        gpa = studGPA;
+        stuNumber = studNum;
     }
 
-    public void setFirstName(String firstName){
-        studFirstName = firstName;
+    public void setFirstName(String studFirstName){
+        firstName = studFirstName;
     }
 
-    public String getFirstName(){
-        return studFirstName;
+    public void setMiddleName(String studMiddleName){
+        middleName = studMiddleName;
     }
 
-    public void setMiddleName(String middleName){
-        studMiddleName = middleName;
+    public void setLastName(String studLastName){
+        lastName = studLastName;
     }
 
-    public String getMiddleName(){
-        return studMiddleName;
+    public String getFullName(){
+        return firstName + middleName + lastName;
     }
 
-    public void setLastName(String lastName){
-        studLastName = lastName;
+    public void setStudNum(int studNum){
+        stuNumber = studNum;
     }
 
-    public String getLastName(){
-        return studLastName;
-    }
-    
-    public void setStuNum(int stuNum){
-        studNum = stuNum;
+    public int getStudNum(){
+        return stuNumber;
     }
 
-    public int getStuNum(){
-        return studNum;
-    }
-    
-    public void setStuGPA(double stuGPA){
-        studGPA = stuGPA;
+    public void setGPA(double studGPA){
+        gpa = studGPA;
     }
 
-    public double getStuGPA(){
-        return studGPA;
+    public double getGPA(){
+        return gpa;
     }
 }
