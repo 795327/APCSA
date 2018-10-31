@@ -6,4 +6,6 @@ comment2.params=name\ studGPA\ studNum\ studArrayList
 comment2.target=void\ addStudentToList(java.lang.String,\ double,\ int,\ java.util.ArrayList)
 comment3.params=students
 comment3.target=void\ printStudentList(java.util.ArrayList)
-numComments=4
+comment4.params=name
+comment4.target=void\ parseUserInput(java.lang.String)
+numComments=5

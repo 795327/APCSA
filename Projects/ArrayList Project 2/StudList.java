@@ -8,9 +8,12 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 public class StudList{
+    //declares a new Student object
+    static Student student;
+
     // menuNumber method that displays menu, gets user input, and returns an integer
     public int menuNumber(Scanner userInput){
-        System.out.println("List of menus:"); System.out.println();
+        System.out.println("\nList of menus:");
         System.out.println("1  Add Student to List");
         System.out.println("2  Delete Student from List");
         System.out.println("3  Edit the Student List");
@@ -21,7 +24,7 @@ public class StudList{
         int input = userInput.nextInt();
         return input;
     }
-    
+
     // method that takes in student info and adds it to the ArrayList of students
     public void addStudentToList(String name, double studGPA, int studNum, ArrayList studArrayList){
         parseUserInput(name);
@@ -35,38 +38,26 @@ public class StudList{
         }
     }
 
-    public static String parseUserInput(String name){
+    public static void parseUserInput(String name){
         int firstSpace;
         int secondSpace;
         if (name.indexOf(',') >= 0){
             firstSpace = name.indexOf(" ");
-            String lastName = name.substring(name.indexOf(','));
+            student.setLastName(name.substring(name.indexOf(',')));
             // checks if there is a middle name
             if (name.indexOf(" ", firstSpace + 1) >= 0){
                 secondSpace = name.indexOf(" ", firstSpace + 1);
-                String firstName = name.substring(name.indexOf(','), name.length());
-                String middleName = name.substring(secondSpace + 1, name.length());
-                name = firstName + middleName + lastName;
-                return firstName;
-                return middleName;
-                return lastName;
+                student.setFirstName(name.substring(name.indexOf(','), name.length()));
+                student.setMiddleName(name.substring(secondSpace + 1, name.length()));
             } else {
-                String firstName = name.substring(name.indexOf(','), name.length());
-                name = firstName + lastName;
-                return firstName;
-                return lastName;
+                student.setFirstName(name.substring(name.indexOf(','), name.length()));
             }
-        }
-        if (name.indexOf(',') == -1){
+        } else {
             firstSpace = name.indexOf(" ");
             secondSpace = name.indexOf(" ", firstSpace + 1);
-            String firstName = name.substring(firstSpace);
-            String middleName = name.substring(firstSpace + 1, secondSpace);
-            String lastName = name.substring(secondSpace + 1, name.length());
-            name = firstName + middleName + lastName;
-            return firstName;
-            return middleName;
-            return lastName;
+            student.setFirstName(name.substring(firstSpace));
+            student.setMiddleName(name.substring(firstSpace + 1, secondSpace));
+            student.setLastName(name.substring(secondSpace + 1, name.length()));
         }
     }
 }

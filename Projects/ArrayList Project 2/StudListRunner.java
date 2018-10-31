@@ -18,10 +18,23 @@ public class StudListRunner{
     public static void main(){
         // while loop that runs a main menu for the user to pick an activity
         // and then calls the method corresponding to the activity selected
+        int menuNumber = studList.menuNumber(reader);
         while(true){
-            int menuNumber = studList.menuNumber(reader);
             if (menuNumber == 1){
                 reader = new Scanner(System.in);
+                System.out.println("\nEnter the student's name: ");
+                String inputName = reader.next();
+                System.out.println("\nEnter the student's number: ");
+                int inputNum = reader.nextInt();
+                //checks if the number entered is 6 digits
+                if (digits(inputNum) != 6){
+                    System.out.println("\nThis is an invalid student number! Try again.");
+                    int inputNum2 = reader.nextInt();
+                }
+                System.out.println("\nEnter the student's GPA: ");
+                double inputGPA = reader.nextDouble();
+                studList.addStudentToList(inputName, inputGPA, inputNum, students);
+                System.exit(0);
             }
             if (menuNumber == 2){
 
@@ -44,5 +57,14 @@ public class StudListRunner{
             }
         }
 
+    }
+    
+    public static int digits(int n){
+        int digits = 0;
+        while (n > 0){
+            n /= 10;
+            digits += 1;
+        }
+        return digits;
     }
 }
