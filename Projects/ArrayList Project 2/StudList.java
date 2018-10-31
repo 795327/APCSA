@@ -28,7 +28,7 @@ public class StudList{
     // method that takes in student info and adds it to the ArrayList of students
     public void addStudentToList(String name, double studGPA, int studNum, ArrayList studArrayList){
         parseUserInput(name);
-        Student student = new Student(name, studGPA, studNum);
+        Student student = new Student(name, studNum, studGPA);
         studArrayList.add(student);
     }
 
@@ -43,7 +43,7 @@ public class StudList{
         int secondSpace;
         if (name.indexOf(',') >= 0){
             firstSpace = name.indexOf(" ");
-            student.setLastName(name.substring(name.indexOf(',')));
+            student.setLastName(name.substring(name.indexOf(",")));
             // checks if there is a middle name
             if (name.indexOf(" ", firstSpace + 1) >= 0){
                 secondSpace = name.indexOf(" ", firstSpace + 1);

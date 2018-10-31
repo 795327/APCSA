@@ -23,7 +23,7 @@ public class StudListRunner{
             if (menuNumber == 1){
                 reader = new Scanner(System.in);
                 System.out.println("\nEnter the student's name: ");
-                String inputName = reader.next();
+                String inputName = reader.nextLine();
                 System.out.println("\nEnter the student's number: ");
                 int inputNum = reader.nextInt();
                 //checks if the number entered is 6 digits

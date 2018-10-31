@@ -8,7 +8,6 @@
 import java.util.ArrayList;
 public class Student{
     //instance variables
-    Student student;
     String firstName;
     String middleName;
     String lastName;
@@ -19,7 +18,7 @@ public class Student{
     /**
      * Constructor for objects of class Student
      */
-    public Student(String studName, double studGPA, int studNum){
+    public Student(String studName, int studNum, double studGPA){
         name = studName;
         gpa = studGPA;
         stuNumber = studNum;
