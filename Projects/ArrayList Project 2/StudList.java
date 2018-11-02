@@ -32,10 +32,35 @@ public class StudList{
         studArrayList.add(student);
     }
 
-    public void printStudentList(ArrayList students){
-        for (int i = 0; i < students.size(); i++){
-            System.out.println(students.get(i));
+    public void printStudentList(ArrayList studArrayList){
+        for (int i = 0; i < studArrayList.size(); i++){
+            System.out.println("Student # " + i + studArrayList.get(i));
         }
+    }
+    
+    public void deleteStudentFromList(String name, int studNum, ArrayList studArrayList){
+        boolean studentExists;
+        if (studArrayList.contains("name") || studArrayList.contains(studNum)){
+            studentExists = true;
+            studArrayList.remove(studArrayList.indexOf(name));
+        } else {
+            studentExists = false;
+            System.out.println("This student doesn't exist in the list.");
+        }
+    }
+    
+    public void editStudentList(String oldName, int studNum, double gpa, ArrayList studArrayList){
+        boolean studentExists;
+        if (studArrayList.contains("name") || studArrayList.contains(studNum)){
+            studentExists = true;
+        } else {
+            studentExists = false;
+            System.out.println("This student doesn't exist in the list.");
+        }
+    }
+    
+    public void filterSearchStudentList(int studNum, double gpa, ArrayList studArrayList){
+        
     }
 
     public static void parseUserInput(String name){

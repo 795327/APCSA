@@ -24,6 +24,7 @@ public class StudListRunner{
                 reader = new Scanner(System.in);
                 System.out.println("\nEnter the student's name: ");
                 String inputName = reader.nextLine();
+                studList.parseUserInput(inputName);
                 System.out.println("\nEnter the student's number: ");
                 int inputNum = reader.nextInt();
                 //checks if the number entered is 6 digits
@@ -40,13 +41,21 @@ public class StudListRunner{
 
             }
             if (menuNumber == 3){
-
+                reader = new Scanner(System.in);
+                System.out.println("\nEnter the student's name to edit (or enter 'q' to enter ID number instead): ");
+                String inputName = reader.nextLine();
+                if (inputName == "q"){
+                    System.out.println("\nEnter the student's number: ");
+                    int inputNum = reader.nextInt();
+                }
+                int inputNum = 0;
+                //studList.editStudentList(inputName, inputNum, students);
             }
             if (menuNumber == 4){
 
             }
             if (menuNumber == 5){
-
+                //System.out.println(studList.printStudentList(students));
             }
             if (menuNumber == 6){
 
@@ -58,7 +67,7 @@ public class StudListRunner{
         }
 
     }
-    
+
     public static int digits(int n){
         int digits = 0;
         while (n > 0){
