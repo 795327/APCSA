@@ -43,21 +43,21 @@ public class StudList{
         int secondSpace;
         if (name.indexOf(',') >= 0){
             firstSpace = name.indexOf(" ");
-            student.setLastName(name.substring(name.indexOf(",")));
+            student.setLastName(name.substring(0, name.indexOf(",")));
             // checks if there is a middle name
             if (name.indexOf(" ", firstSpace + 1) >= 0){
                 secondSpace = name.indexOf(" ", firstSpace + 1);
-                student.setFirstName(name.substring(name.indexOf(','), name.length()));
-                student.setMiddleName(name.substring(secondSpace + 1, name.length()));
+                student.setFirstName(name.substring(firstSpace + 1, secondSpace));
+                student.setMiddleName(name.substring(secondSpace + 1));
             } else {
-                student.setFirstName(name.substring(name.indexOf(','), name.length()));
+                student.setFirstName(name.substring(firstSpace + 1));
             }
         } else {
             firstSpace = name.indexOf(" ");
             secondSpace = name.indexOf(" ", firstSpace + 1);
-            student.setFirstName(name.substring(firstSpace));
+            student.setFirstName(name.substring(0, firstSpace));
             student.setMiddleName(name.substring(firstSpace + 1, secondSpace));
-            student.setLastName(name.substring(secondSpace + 1, name.length()));
+            student.setLastName(name.substring(secondSpace + 1));
         }
     }
 }

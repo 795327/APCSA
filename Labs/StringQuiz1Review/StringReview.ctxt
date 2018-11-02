@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=StringReview
+comment1.params=
+comment1.target=void\ main()
+comment2.params=statement
+comment2.target=java.lang.String\ transformIHaveA(java.lang.String)
+comment2.text=\r\n\ Take\ a\ statement\ with\ "I\ have\ a\ <something>."\ and\ transform\ it\ into\ \r\n\ "What\ color\ is\ your\ <something>?"\r\n\ @param\ statement\ the\ user\ statement,\ assumed\ to\ contain\ "I\ have\ a"\r\n\ @return\ the\ transformed\ statement\r\n
+comment3.params=statement
+comment3.target=java.lang.String\ transformIHaveA2(java.lang.String)
+comment3.text=\r\n\ Take\ a\ statement\ with\ "I\ have\ a\ <something>."\ and\ transform\ it\ into\ \r\n\ "Random\ response\ <something>?"\r\n\ @param\ statement\ the\ user\ statement,\ assumed\ to\ contain\ "I\ have\ a"\r\n\ @return\ the\ transformed\ statement\r\n
+comment4.params=str
+comment4.target=int\ countCode(java.lang.String)
+comment5.params=x
+comment5.target=java.lang.String\ go(int)
+numComments=6
