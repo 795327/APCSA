@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=StringTestTwo
+comment1.params=
+comment1.target=void\ main()
+comment2.params=statement
+comment2.target=java.lang.String\ transformILike(java.lang.String)
+comment3.params=x
+comment3.target=void\ setIsActive(boolean)
+comment4.params=
+comment4.target=boolean\ getIsActive()
+comment5.params=x
+comment5.target=java.lang.String\ someFun(int)
+numComments=6
