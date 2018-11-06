@@ -38,34 +38,53 @@ public class StudListRunner{
                 System.exit(0);
             }
             if (menuNumber == 2){
-
-            }
-            if (menuNumber == 3){
+                int inputNum = 0;
                 reader = new Scanner(System.in);
                 System.out.println("\nEnter the student's name to edit (or enter 'q' to enter ID number instead): ");
                 String inputName = reader.nextLine();
                 if (inputName == "q"){
                     System.out.println("\nEnter the student's number: ");
-                    int inputNum = reader.nextInt();
+                    inputNum = reader.nextInt();
+                    if (digits(inputNum) != 6){
+                        System.out.println("\nThis is an invalid student number! Try again.");
+                        int inputNum2 = reader.nextInt();
+                    }
+                } else {
+                    studList.deleteStudentFromList(inputName, inputNum, students);
                 }
+            }
+            if (menuNumber == 3){
                 int inputNum = 0;
-                //studList.editStudentList(inputName, inputNum, students);
+                reader = new Scanner(System.in);
+                System.out.println("\nEnter the student's name to edit (or enter 'q' to enter ID number instead): ");
+                String inputName = reader.nextLine();
+                if (inputName == "q"){
+                    System.out.println("\nEnter the student's number: ");
+                    inputNum = reader.nextInt();
+                }
+                System.out.println("\nEnter the student's GPA to edit (or enter the current GPA to keep it the same): ");
+                double inputGPA = reader.nextDouble();
+                studList.editStudentList(inputName, inputNum, inputGPA, students);
             }
             if (menuNumber == 4){
-
+                studList.clearStudentList(students);
             }
             if (menuNumber == 5){
-                //System.out.println(studList.printStudentList(students));
+                clearScreen();
+                studList.printStudentList(students);
             }
             if (menuNumber == 6){
-
+                clearScreen();
+                reader = new Scanner(System.in);
+                System.out.println("\nEnter the student's name to edit: ");
+                String inputName = reader.nextLine();
+                studList.printStudent(inputName, students);
             }
             // exits program if user chooses to by enter 'q'
             if (menuNumber == 0){
                 System.exit(0);
             }
         }
-
     }
 
     public static int digits(int n){
@@ -76,4 +95,9 @@ public class StudListRunner{
         }
         return digits;
     }
+
+    public static void clearScreen() {  
+        System.out.print("\033[H\033[2J");  
+        System.out.flush();  
+    }  
 }

@@ -4,4 +4,6 @@ comment1.params=
 comment1.target=void\ main()
 comment2.params=n
 comment2.target=int\ digits(int)
-numComments=3
+comment3.params=
+comment3.target=void\ clearScreen()
+numComments=4

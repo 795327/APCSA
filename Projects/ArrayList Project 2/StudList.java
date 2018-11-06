@@ -34,10 +34,12 @@ public class StudList{
 
     public void printStudentList(ArrayList studArrayList){
         for (int i = 0; i < studArrayList.size(); i++){
-            System.out.println("Student # " + i + studArrayList.get(i));
+            if (studArrayList.get(i) != null){
+                System.out.println("Student # " + (i+1) + studArrayList.get(i));
+            }
         }
     }
-    
+
     public void deleteStudentFromList(String name, int studNum, ArrayList studArrayList){
         boolean studentExists;
         if (studArrayList.contains("name") || studArrayList.contains(studNum)){
@@ -48,7 +50,7 @@ public class StudList{
             System.out.println("This student doesn't exist in the list.");
         }
     }
-    
+
     public void editStudentList(String oldName, int studNum, double gpa, ArrayList studArrayList){
         boolean studentExists;
         if (studArrayList.contains("name") || studArrayList.contains(studNum)){
@@ -58,9 +60,24 @@ public class StudList{
             System.out.println("This student doesn't exist in the list.");
         }
     }
-    
-    public void filterSearchStudentList(int studNum, double gpa, ArrayList studArrayList){
-        
+
+    public void clearStudentList(ArrayList studArrayList){
+        studArrayList.clear();
+    }
+
+    public void printStudent(String name, ArrayList studArrayList){
+        boolean studentExists;
+        if (studArrayList.contains("name")){
+            studentExists = true;
+            for (int i = 0; i < studArrayList.size(); i++){
+                if (studArrayList.get(i) == name){
+                    System.out.println(studArrayList.get(i));
+                }
+            }
+        } else {
+            studentExists = false;
+            System.out.println("This student doesn't exist in the list.");
+        }
     }
 
     public static void parseUserInput(String name){
