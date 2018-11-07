@@ -58,8 +58,10 @@ public class StringTestTwo{
     
     public static String transformILike(String statement){
         ArrayList<String> randResponses = new ArrayList<String>();
-        randResponses.add("Why do you like"); randResponses.add("Do you eat");
-        randResponses.add("What are"); randResponses.add("What color are");
+        randResponses.add("Why do you like"); 
+        randResponses.add("Do you eat");
+        randResponses.add("What are"); 
+        randResponses.add("What color are");
         String response = randResponses.get((int)(Math.random() * 4));
         return response + " " + statement.substring(7) + "?";
     }
