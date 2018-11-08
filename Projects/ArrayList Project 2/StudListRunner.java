@@ -8,8 +8,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 public class StudListRunner{
-<<<<<<< HEAD
-    
+
     // declares and initializes new Scanner object for user input
     static Scanner reader = new Scanner(System.in);
     // declares and initializes new ArrayList of student objects
@@ -21,20 +20,13 @@ public class StudListRunner{
         // declares and initializes new student list
         StudList studListObj = new StudList();
         int menuNumber = studListObj.menuNumber(reader);
-=======
-    // declares and initializes new Scanner object for user input
-    static Scanner reader = new Scanner(System.in);
-    // declares and initializes new ArrayList of student objects
-    static ArrayList<Student> students = new ArrayList<Student>();
-    
-    // while loop that runs a main menu for the user to pick an activity
-    // and then calls the method corresponding to the activity selected
-    public static void main(){
+        // declares and initializes new Scanner object for user input
+        Scanner reader = new Scanner(System.in);
+        // declares and initializes new ArrayList of student objects
+        ArrayList<Student> students = new ArrayList<Student>();
         // declares and initializes new student list
         StudList studList = new StudList();
->>>>>>> 06ee8fb991fc52b0fe6e66d1da7162a967b32703
         while(true){
-            int menuNumber = studList.menuNumber(reader);
             if (menuNumber == 1){
                 reader = new Scanner(System.in);
                 System.out.println("\nEnter the student's name: ");

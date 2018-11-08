@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Card
+comment0.text=\r\n\ Card\r\n\r\n\ @author\ (Noel\ Salmeron)\r\n\ @version\ (1108)\r\n
+comment1.params=rank\ suit
+comment1.target=Card(int,\ java.lang.String)
+comment2.params=
+comment2.target=int\ getRank()
+comment3.params=
+comment3.target=java.lang.String\ getSuit()
+numComments=4

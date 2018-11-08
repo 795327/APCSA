@@ -8,12 +8,9 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 public class StudList{
+    ArrayList<Student> studList  = new ArrayList<Student>();
     //declares a new Student object
-<<<<<<< HEAD
-    ArrayList<Student> studList  = new ArrayList<Student>() ;
-=======
     Student student;
->>>>>>> 06ee8fb991fc52b0fe6e66d1da7162a967b32703
 
     // menuNumber method that displays menu, gets user input, and returns an integer
     public int menuNumber(Scanner userInput){
@@ -39,7 +36,7 @@ public class StudList{
     public void printStudentList(ArrayList studArrayList){
         for (int i = 0; i < studArrayList.size(); i++){
             //if (studArrayList.get(i) != null){
-                System.out.println("Student # " + (i+1) + studArrayList.get(i));
+            System.out.println("Student # " + (i+1) + studArrayList.get(i));
             //}
         }
     }
@@ -83,17 +80,10 @@ public class StudList{
             System.out.println("This student doesn't exist in the list.");
         }
     }
-<<<<<<< HEAD
 
     public void parseUserInput(String name){
-=======
-    
-    public void parseUserInput(String name){
-        Student student = new Student();
->>>>>>> 06ee8fb991fc52b0fe6e66d1da7162a967b32703
         int firstSpace;
         int secondSpace;
-        
         //  create a Student object
         Student student = new Student();
         if (name.indexOf(',') >= 0){
