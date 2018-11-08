@@ -9,7 +9,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 public class StudList{
     //declares a new Student object
-    static Student student;
+    Student student;
 
     // menuNumber method that displays menu, gets user input, and returns an integer
     public int menuNumber(Scanner userInput){
@@ -34,9 +34,9 @@ public class StudList{
 
     public void printStudentList(ArrayList studArrayList){
         for (int i = 0; i < studArrayList.size(); i++){
-            if (studArrayList.get(i) != null){
+            //if (studArrayList.get(i) != null){
                 System.out.println("Student # " + (i+1) + studArrayList.get(i));
-            }
+            //}
         }
     }
 
@@ -67,7 +67,7 @@ public class StudList{
 
     public void printStudent(String name, ArrayList studArrayList){
         boolean studentExists;
-        if (studArrayList.contains("name")){
+        if (studArrayList.contains(name)){
             studentExists = true;
             for (int i = 0; i < studArrayList.size(); i++){
                 if (studArrayList.get(i) == name){
@@ -79,8 +79,9 @@ public class StudList{
             System.out.println("This student doesn't exist in the list.");
         }
     }
-
-    public static void parseUserInput(String name){
+    
+    public void parseUserInput(String name){
+        Student student = new Student();
         int firstSpace;
         int secondSpace;
         if (name.indexOf(',') >= 0){
