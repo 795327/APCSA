@@ -1,19 +1,36 @@
 #BlueJ package file
-dependency1.from=StudListRunner
-dependency1.to=StudList
+dependency1.from=StudList
+dependency1.to=Student
 dependency1.type=UsesDependency
 dependency2.from=StudListRunner
 dependency2.to=Student
 dependency2.type=UsesDependency
-dependency3.from=StudList
-dependency3.to=Student
+dependency3.from=StudListRunner
+dependency3.to=StudList
 dependency3.type=UsesDependency
+<<<<<<< HEAD
 objectbench.height=76
 objectbench.width=1900
 package.editor.height=884
 package.editor.width=1802
 package.editor.x=-8
 package.editor.y=-8
+=======
+editor.fx.0.height=786
+editor.fx.0.width=1059
+editor.fx.0.x=0
+editor.fx.0.y=4
+objectbench.height=66
+objectbench.width=452
+package.divider.horizontal=0.6
+package.divider.vertical=0.6769911504424779
+package.editor.height=146
+package.editor.width=362
+package.editor.x=378
+package.editor.y=816
+package.frame.height=226
+package.frame.width=492
+>>>>>>> 06ee8fb991fc52b0fe6e66d1da7162a967b32703
 package.numDependencies=3
 package.numTargets=3
 package.showExtends=true

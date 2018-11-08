@@ -8,6 +8,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 public class StudListRunner{
+<<<<<<< HEAD
     
     // declares and initializes new Scanner object for user input
     static Scanner reader = new Scanner(System.in);
@@ -20,7 +21,20 @@ public class StudListRunner{
         // declares and initializes new student list
         StudList studListObj = new StudList();
         int menuNumber = studListObj.menuNumber(reader);
+=======
+    // declares and initializes new Scanner object for user input
+    static Scanner reader = new Scanner(System.in);
+    // declares and initializes new ArrayList of student objects
+    static ArrayList<Student> students = new ArrayList<Student>();
+    
+    // while loop that runs a main menu for the user to pick an activity
+    // and then calls the method corresponding to the activity selected
+    public static void main(){
+        // declares and initializes new student list
+        StudList studList = new StudList();
+>>>>>>> 06ee8fb991fc52b0fe6e66d1da7162a967b32703
         while(true){
+            int menuNumber = studList.menuNumber(reader);
             if (menuNumber == 1){
                 reader = new Scanner(System.in);
                 System.out.println("\nEnter the student's name: ");
@@ -36,7 +50,6 @@ public class StudListRunner{
                 System.out.println("\nEnter the student's GPA: ");
                 double inputGPA = reader.nextDouble();
                 studList.addStudentToList(inputName, inputGPA, inputNum, students);
-                System.exit(0);
             }
             if (menuNumber == 2){
                 int inputNum = 0;
@@ -69,15 +82,14 @@ public class StudListRunner{
             }
             if (menuNumber == 4){
                 studList.clearStudentList(students);
+                System.out.println("Student list cleared!");
             }
             if (menuNumber == 5){
-                clearScreen();
                 studList.printStudentList(students);
             }
             if (menuNumber == 6){
-                clearScreen();
                 reader = new Scanner(System.in);
-                System.out.println("\nEnter the student's name to edit: ");
+                System.out.println("\nEnter the student's name to print: ");
                 String inputName = reader.nextLine();
                 studList.printStudent(inputName, students);
             }
@@ -96,9 +108,4 @@ public class StudListRunner{
         }
         return digits;
     }
-
-    public static void clearScreen() {  
-        System.out.print("\033[H\033[2J");  
-        System.out.flush();  
-    }  
 }

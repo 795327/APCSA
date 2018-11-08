@@ -1,8 +1,16 @@
 #BlueJ class context
+<<<<<<< HEAD
 comment0.params=
 comment0.target=void\ main()
 comment1.params=n
 comment1.target=int\ digits(int)
 comment2.params=
 comment2.target=void\ clearScreen()
+=======
+comment0.target=StudListRunner
+comment1.params=
+comment1.target=void\ main()
+comment2.params=n
+comment2.target=int\ digits(int)
+>>>>>>> 06ee8fb991fc52b0fe6e66d1da7162a967b32703
 numComments=3

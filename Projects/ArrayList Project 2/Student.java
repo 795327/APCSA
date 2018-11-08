@@ -24,7 +24,11 @@ public class Student{
         stuNumber = studNum;
     }
     
+<<<<<<< HEAD
      public Student(){
+=======
+    public Student(){
+>>>>>>> 06ee8fb991fc52b0fe6e66d1da7162a967b32703
         name = "";
         gpa = 0.0;
         stuNumber = 0;
