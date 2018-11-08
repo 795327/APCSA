@@ -23,6 +23,12 @@ public class Student{
         gpa = studGPA;
         stuNumber = studNum;
     }
+    
+     public Student(){
+        name = "";
+        gpa = 0.0;
+        stuNumber = 0;
+    }
 
     public void setFirstName(String studFirstName){
         firstName = studFirstName;

@@ -9,7 +9,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 public class StudList{
     //declares a new Student object
-    static Student student;
+    ArrayList<Student> studList  = new ArrayList<Student>() ;
 
     // menuNumber method that displays menu, gets user input, and returns an integer
     public int menuNumber(Scanner userInput){
@@ -80,9 +80,12 @@ public class StudList{
         }
     }
 
-    public static void parseUserInput(String name){
+    public void parseUserInput(String name){
         int firstSpace;
         int secondSpace;
+        
+        //  create a Student object
+        Student student = new Student();
         if (name.indexOf(',') >= 0){
             firstSpace = name.indexOf(" ");
             student.setLastName(name.substring(0, name.indexOf(",")));
@@ -101,5 +104,7 @@ public class StudList{
             student.setMiddleName(name.substring(firstSpace + 1, secondSpace));
             student.setLastName(name.substring(secondSpace + 1));
         }
+        studList.add(student);
+        System.out.println(studList.size());
     }
 }

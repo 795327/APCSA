@@ -1,9 +1,8 @@
 #BlueJ class context
-comment0.target=StudListRunner
-comment1.params=
-comment1.target=void\ main()
-comment2.params=n
-comment2.target=int\ digits(int)
-comment3.params=
-comment3.target=void\ clearScreen()
-numComments=4
+comment0.params=
+comment0.target=void\ main()
+comment1.params=n
+comment1.target=int\ digits(int)
+comment2.params=
+comment2.target=void\ clearScreen()
+numComments=3
