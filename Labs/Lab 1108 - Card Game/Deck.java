@@ -12,20 +12,20 @@ public class Deck{
     // adds the 52 cards included in a normal deck to the deck ArrayList
     public Deck(){
         for (int i = 1; i < 14; i++){
-            for (int a = 1; i < 5; i++){
-                if (a == 1){
+            for (int a = 0; a < 4; a++){
+                if (a == 0){
                     Card card = new Card(i, "Heart");
                     deck.add(card);
                 }
-                if (a == 2){
+                if (a == 1){
                     Card card = new Card(i, "Diamond");
                     deck.add(card);
                 }
-                if (a == 3){
+                if (a == 2){
                     Card card = new Card(i, "Spade");
                     deck.add(card);
                 }
-                if (a == 4){
+                if (a == 3){
                     Card card = new Card(i, "Club");
                     deck.add(card);
                 }

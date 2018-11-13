@@ -8,7 +8,7 @@
 import java.util.ArrayList;
 public class Hand{
     // ArrayList of cards that will contain five cards
-    ArrayList<Card> handCards = new ArrayList<Card>();
+    ArrayList<Card> handCards;
     
     // gets 5 cards from the deck to have in hand
     public Hand(Deck deck){
