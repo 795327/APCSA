@@ -12,20 +12,19 @@ public class StudListRunner{
     // declares and initializes new Scanner object for user input
     static Scanner reader = new Scanner(System.in);
     // declares and initializes new ArrayList of student objects
-    //static ArrayList<Student> students = new ArrayList<Student>();
-
+    static ArrayList<Student> students = new ArrayList<Student>();
+    // declares and initializes new student list
+    static StudList studListObj = new StudList();
+    static int menuNumber = studListObj.menuNumber(reader);
+    
     public static void main(){
+        // declares and initializes new Scanner object for user input
+        // Scanner reader = new Scanner(System.in);
+        // declares and initializes new ArrayList of student objects
+        // ArrayList<Student> students = new ArrayList<Student>();
+
         // while loop that runs a main menu for the user to pick an activity
         // and then calls the method corresponding to the activity selected
-        // declares and initializes new student list
-        StudList studListObj = new StudList();
-        int menuNumber = studListObj.menuNumber(reader);
-        // declares and initializes new Scanner object for user input
-        Scanner reader = new Scanner(System.in);
-        // declares and initializes new ArrayList of student objects
-        ArrayList<Student> students = new ArrayList<Student>();
-        // declares and initializes new student list
-        StudList studList = new StudList();
         while(true){
             if (menuNumber == 1){
                 reader = new Scanner(System.in);
@@ -41,7 +40,7 @@ public class StudListRunner{
                 }
                 System.out.println("\nEnter the student's GPA: ");
                 double inputGPA = reader.nextDouble();
-                studList.addStudentToList(inputName, inputGPA, inputNum, students);
+                studListObj.addStudentToList(inputName, inputGPA, inputNum, students);
             }
             if (menuNumber == 2){
                 int inputNum = 0;
@@ -56,7 +55,7 @@ public class StudListRunner{
                         int inputNum2 = reader.nextInt();
                     }
                 } else {
-                    studList.deleteStudentFromList(inputName, inputNum, students);
+                    studListObj.deleteStudentFromList(inputName, inputNum, students);
                 }
             }
             if (menuNumber == 3){
@@ -70,20 +69,20 @@ public class StudListRunner{
                 }
                 System.out.println("\nEnter the student's GPA to edit (or enter the current GPA to keep it the same): ");
                 double inputGPA = reader.nextDouble();
-                studList.editStudentList(inputName, inputNum, inputGPA, students);
+                studListObj.editStudentList(inputName, inputNum, inputGPA, students);
             }
             if (menuNumber == 4){
-                studList.clearStudentList(students);
+                studListObj.clearStudentList(students);
                 System.out.println("Student list cleared!");
             }
             if (menuNumber == 5){
-                studList.printStudentList(students);
+                studListObj.printStudentList(students);
             }
             if (menuNumber == 6){
                 reader = new Scanner(System.in);
                 System.out.println("\nEnter the student's name to print: ");
                 String inputName = reader.nextLine();
-                studList.printStudent(inputName, students);
+                studListObj.printStudent(inputName, students);
             }
             // exits program if user chooses to by enter 'q'
             if (menuNumber == 0){
@@ -94,7 +93,7 @@ public class StudListRunner{
 
     public static int digits(int n){
         int digits = 0;
-        while (n > 0){
+        while (n > -1){
             n /= 10;
             digits += 1;
         }
