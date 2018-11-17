@@ -14,51 +14,40 @@ public class Student{
     String name;
     int stuNumber;
     double gpa;
-
-    /**
-     * Constructor for objects of class Student
-     */
-    public Student(String studName, int studNum, double studGPA){
-        name = studName;
-        gpa = studGPA;
-        stuNumber = studNum;
-    }
     
-    public Student(){
-        name = "";
-        gpa = 0.0;
-        stuNumber = 0;
-    }
-
-    public void setFirstName(String studFirstName){
+    public void setFirstName(String studFirstName){ // sets first name
         firstName = studFirstName;
     }
 
-    public void setMiddleName(String studMiddleName){
+    public void setMiddleName(String studMiddleName){ // sets middle name
         middleName = studMiddleName;
     }
 
-    public void setLastName(String studLastName){
+    public void setLastName(String studLastName){ // sets last name
         lastName = studLastName;
     }
-
-    public String getFullName(){
-        return firstName + middleName + lastName;
+    
+    public String getLastName() { // returns last name
+        return lastName;
     }
 
-    public void setStudNum(int studNum){
+    public String getFullName(){ // returns full name
+        return firstName + " " + middleName + " " + lastName;
+    }
+
+    public void setStuNumber(int studNum){ // sets student number
         stuNumber = studNum;
     }
 
-    public int getStudNum(){
+    public int getStuNumber(){ // returns student number
         return stuNumber;
     }
 
-    public void setGPA(double studGPA){
+    public void setGPA(double studGPA){ // sets GPA
         gpa = studGPA;
     }
 
-    public double getGPA(){
+    public double getGPA(){ // returns GPA
         return gpa;
     }
 }

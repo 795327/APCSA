@@ -8,84 +8,125 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 public class StudListRunner{
-
-    // declares and initializes new Scanner object for user input
-    static Scanner reader = new Scanner(System.in);
-    // declares and initializes new ArrayList of student objects
-    static ArrayList<Student> students = new ArrayList<Student>();
-    // declares and initializes new student list
-    static StudList studListObj = new StudList();
-    static int menuNumber = studListObj.menuNumber(reader);
-    
     public static void main(){
-        // declares and initializes new Scanner object for user input
-        // Scanner reader = new Scanner(System.in);
-        // declares and initializes new ArrayList of student objects
-        // ArrayList<Student> students = new ArrayList<Student>();
-
+        // declares and initializes new student list
+        StudList studList = new StudList();
+        boolean running = true;
+        
         // while loop that runs a main menu for the user to pick an activity
         // and then calls the method corresponding to the activity selected
-        while(true){
+        while (running = true){
+            int menuNumber = studList.menuNumber();
+            
+            // adding a student
             if (menuNumber == 1){
-                reader = new Scanner(System.in);
+                Scanner input = new Scanner(System.in);
                 System.out.println("\nEnter the student's name: ");
-                String inputName = reader.nextLine();
-                studListObj.parseUserInput(inputName);
+                String name = input.nextLine();
                 System.out.println("\nEnter the student's number: ");
-                int inputNum = reader.nextInt();
-                //checks if the number entered is 6 digits
-                if (digits(inputNum) != 6){
-                    System.out.println("\nThis is an invalid student number! Try again.");
-                    int inputNum2 = reader.nextInt();
-                }
+                int num = input.nextInt();
                 System.out.println("\nEnter the student's GPA: ");
-                double inputGPA = reader.nextDouble();
-                studListObj.addStudentToList(inputName, inputGPA, inputNum, students);
+                double gpa = input.nextDouble();
+                studList.addStudentToList(name, gpa, num);
+                System.out.println("Student added.");
             }
+
+            //removing a student
             if (menuNumber == 2){
-                int inputNum = 0;
-                reader = new Scanner(System.in);
-                System.out.println("\nEnter the student's name to edit (or enter 'q' to enter ID number instead): ");
-                String inputName = reader.nextLine();
-                if (inputName == "q"){
-                    System.out.println("\nEnter the student's number: ");
-                    inputNum = reader.nextInt();
-                    if (digits(inputNum) != 6){
-                        System.out.println("\nThis is an invalid student number! Try again.");
-                        int inputNum2 = reader.nextInt();
-                    }
-                } else {
-                    studListObj.deleteStudentFromList(inputName, inputNum, students);
+                Scanner input = new Scanner(System.in);
+                System.out.println("\nEnter the student's last name: ");
+                String name = input.nextLine();
+                System.out.println("Student removed.");
+                if (studList.deleteStudentFromList(name) != true) {
+                    System.out.println("This student was not found.");
                 }
             }
+
+            // editing a student
             if (menuNumber == 3){
-                int inputNum = 0;
-                reader = new Scanner(System.in);
-                System.out.println("\nEnter the student's name to edit (or enter 'q' to enter ID number instead): ");
-                String inputName = reader.nextLine();
-                if (inputName == "q"){
+                int num;
+                Scanner input = new Scanner(System.in);
+                System.out.println("\nEnter 'a' to use the student's last name to edit (or enter 'q' to enter ID number instead): ");
+                String name = input.nextLine();
+                if (name == "q"){ // path of using num to identify student
                     System.out.println("\nEnter the student's number: ");
-                    inputNum = reader.nextInt();
+                    num = input.nextInt();
+                    if (digits(num) != 6){ 
+                        System.out.println("\nThis is an invalid student number! Try again.");
+                    } else {
+                        System.out.println("\nEnter the student's revised full name: ");
+                        name = input.nextLine();
+                        System.out.println("\nEnter the student's revised GPA (or enter the existing GPA): ");
+                        double gpa = input.nextDouble();
+                        String last = null;
+                        if (studList.editStudentList(name, last, num, gpa) == true) {
+                            System.out.println("Student edited.");
+                        } else {
+                            System.out.println("Edit failed.");
+                        }
+                    } 
+                } else {
+                    System.out.println("\nEnter the student's last name: ");
+                    String last = input.nextLine();
+                    System.out.println("\nEnter the student's revised name: ");
+                    name = input.nextLine();
+                    System.out.println("\nEnter the student's revised GPA: ");
+                    double gpa = input.nextDouble();
+                    num = 0;
+                    if (studList.editStudentList(name, last, num, gpa) == true) {
+                        System.out.println("Student edited.");
+                    } else {
+                        System.out.println("Edit failed.");
+                    }
                 }
-                System.out.println("\nEnter the student's GPA to edit (or enter the current GPA to keep it the same): ");
-                double inputGPA = reader.nextDouble();
-                studListObj.editStudentList(inputName, inputNum, inputGPA, students);
             }
+
+            // clearing student list
             if (menuNumber == 4){
-                studListObj.clearStudentList(students);
+                studList.clearList();
                 System.out.println("Student list cleared!");
             }
+
+            // printing student list
             if (menuNumber == 5){
-                studListObj.printStudentList(students);
+                System.out.println("\nStudent List: ");
+                studList.printStudentList();
             }
+
+            // printing a student
             if (menuNumber == 6){
-                reader = new Scanner(System.in);
-                System.out.println("\nEnter the student's name to print: ");
-                String inputName = reader.nextLine();
-                studListObj.printStudent(inputName, students);
+                int num;
+                Scanner input = new Scanner(System.in);
+                System.out.println("\nEnter 'a' to use the student's last name to edit (or enter 'q' to enter ID number instead): ");
+                String name = input.nextLine();
+                if (name == "q"){ // path of using num to identify student
+                    System.out.println("\nEnter the student's number: ");
+                    num = input.nextInt();
+                    if (digits(num) != 6){ 
+                        System.out.println("\nThis is an invalid student number! Try again.");
+                    } else {
+                        Student s = studList.printStudent("", num);
+                        if (s != null) {
+                            System.out.println("Name: " + s.getFullName() + ", Student Number: " + s.getStuNumber() + ", GPA: " + s.getGPA());
+                        } else {
+                            System.out.println("\nThis student was not found! Try again.");
+                        }
+                    } 
+                } else {
+                    System.out.println("\nEnter the student's last name: ");
+                    String last = input.nextLine();
+                    Student s = studList.printStudent(last, 0);
+                    if (s != null) {
+                        System.out.println("Name: " + s.getFullName() + ", Student Number: " + s.getStuNumber() + ", GPA: " + s.getGPA());
+                    } else {
+                        System.out.println("\nThis student was not found! Try again.");
+                    }
+                }
             }
+
             // exits program if user chooses to by enter 'q'
             if (menuNumber == 0){
+                running = false;
                 System.exit(0);
             }
         }
