@@ -46,9 +46,7 @@ public class CellMatrix{
     // Finds the sum of each of the neighbors and returns the greatest 
     // neighbor value
     public int getGreatestNeighbors(){
-        int neighbors = 0;
-        
-        return neighbors;
+        return Cell.getNeighbors();
     }
 
     //  Load neighbor cells into the neighbors array
@@ -62,38 +60,29 @@ public class CellMatrix{
             for (int c = 0; c < cells[r].length; c++){
                 // north
                 if (r < cells.length - 1){
-                    north += cells[r + 1][c].getInt();
+                    north = cells[r + 1][c].getInt();
                 }
 
                 // east
                 if (c < cells[r].length - 1){
-                    east += cells[r][c + 1].getInt();
+                    east = cells[r][c + 1].getInt();
                 }
 
                 // south
                 if (r > cells.length - 1){
-                    south += cells[r - 1][c].getInt();
+                    south = cells[r - 1][c].getInt();
                 }
 
                 // west
                 if (c > cells[r].length - 1){
-                    west += cells[r][c - 1].getInt();
+                    west = cells[r][c - 1].getInt();
                 }
 
                 // checking if this cell has a greater neighbors
                 if ((north + east + south + west) > totalNeighbors){
                     totalNeighbors = north + east + south + west;
+                    Cell.setNeighbors(north, east, south, west);
                 }
-                
-                for (int i = 0; i < getNeighbors().length; i++){
-                    
-                }
-                
-                // resetting neighbor values for the next cell
-                north = 0;
-                east = 0;
-                south = 0;
-                west = 0;
             }
         }
     }
