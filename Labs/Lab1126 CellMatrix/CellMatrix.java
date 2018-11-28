@@ -27,7 +27,7 @@ public class CellMatrix{
     public void printMatrix(){
         for (int r = 0; r < cells.length; r++){
             for (int c = 0; c < cells[r].length; c++){
-                System.out.print(cells[r][c].getInt() + " ");
+                System.out.print(" " + cells[r][c].getInt());
             }
             System.out.println();
         }
@@ -46,48 +46,45 @@ public class CellMatrix{
     // Finds the sum of each of the neighbors and returns the greatest 
     // neighbor value
     public int getGreatestNeighbors(){
-        return Cell.getNeighbors();
+        int greatest = 0;
+        for (int r = 0; r < cells.length; r++){
+            for (int c = 0; c < cells[r].length; c++){
+                if (greatest < cells[r][c].getNeighborSum()){
+                    greatest = cells[r][c].getNeighborSum();
+                }
+                //System.out.println(greatest + ", ");
+            }
+        }
+        
+        return greatest;
     }
 
     //  Load neighbor cells into the neighbors array
     public void loadNeighbors(){
-        int totalNeighbors = 0;
-        int north = 0;
-        int east = 0;
-        int south = 0;
-        int west = 0;
         for (int r = 0; r < cells.length; r++){
             for (int c = 0; c < cells[r].length; c++){
                 // north
-                if (r < cells.length - 1){
-                    north = cells[r + 1][c].getInt();
+                if (r > 0){
+                    cells[r][c].getNeighbors()[0] = cells[r - 1][c];
                 }
 
                 // east
-                if (c < cells[r].length - 1){
-                    east = cells[r][c + 1].getInt();
+                if (c > 0){
+                    cells[r][c].getNeighbors()[1] = cells[r][c - 1];
                 }
 
                 // south
-                if (r > cells.length - 1){
-                    south = cells[r - 1][c].getInt();
+                if (r < cells.length - 1){
+                    cells[r][c].getNeighbors()[2] = cells[r + 1][c];
                 }
 
                 // west
-                if (c > cells[r].length - 1){
-                    west = cells[r][c - 1].getInt();
-                }
-
-                // checking if this cell has a greater neighbors
-                if ((north + east + south + west) > totalNeighbors){
-                    totalNeighbors = north + east + south + west;
-                    Cell.setNeighbors(north, east, south, west);
+                if (c < cells[0].length - 1){
+                    cells[r][c].getNeighbors()[3] = cells[r][c + 1];
                 }
             }
         }
     }
 }
-
-
 
 

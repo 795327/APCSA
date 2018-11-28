@@ -9,7 +9,7 @@ public class Cell
 {
     // instance variables - replace the example below with your own
     private int x;
-    private static Cell[] neighbors;
+    private Cell[] neighbors;
 
     /**
      * Constructor for objects of class Cell
@@ -23,14 +23,20 @@ public class Cell
         return x;
     }
 
-    public static void setNeighbors(int n, int e, int s, int w){
-        neighbors[0] = new Cell(n);
-        neighbors[1] = new Cell(e);
-        neighbors[2] = new Cell(s);
-        neighbors[3] = new Cell(w);
+    public Cell[] getNeighbors(){
+        return neighbors;
     }
 
-    public static int getNeighbors(){
-        return neighbors[0].getInt();
+    public int getNeighborSum(){
+        int sum = 0;
+        //System.out.println(neighbors.toString());
+        for (int i = 0; i < neighbors.length; i++){
+            if (neighbors[i] != null){
+                sum += neighbors[i].getInt();
+            }
+            
+        }
+
+        return sum;
     }
 }
