@@ -11,6 +11,7 @@ public class MatrixRunner{
         Cell[] neighbors = new Cell[4];
         cm.loadMatrix();
         cm.printMatrix();
+        cm.loadNeighbors();
         System.out.println("Greatest neighbor value: " + cm.getGreatestNeighbors());
     }
 }

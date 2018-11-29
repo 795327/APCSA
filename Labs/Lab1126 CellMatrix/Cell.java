@@ -16,7 +16,7 @@ public class Cell
      */
     public Cell(int a)    {
         x = a;
-        neighbors = new Cell[4];// North, East, South, and West only 
+        neighbors = new Cell[4]; // North, East, South, and West only 
     }
 
     public int getInt(){
@@ -29,14 +29,11 @@ public class Cell
 
     public int getNeighborSum(){
         int sum = 0;
-        //System.out.println(neighbors.toString());
         for (int i = 0; i < neighbors.length; i++){
             if (neighbors[i] != null){
                 sum += neighbors[i].getInt();
             }
-            
         }
-
         return sum;
     }
 }

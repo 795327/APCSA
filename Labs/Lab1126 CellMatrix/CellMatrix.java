@@ -52,7 +52,7 @@ public class CellMatrix{
                 if (greatest < cells[r][c].getNeighborSum()){
                     greatest = cells[r][c].getNeighborSum();
                 }
-                //System.out.println(greatest + ", ");
+                // System.out.println(greatest + ", ");
             }
         }
         
