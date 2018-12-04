@@ -305,26 +305,26 @@ public class Picture extends SimplePicture
      * from bottom to top */
     public void mirrorArms()
     {
-        int mirrorPoint = 193;
+        int mirrorPointA = 193;
         Pixel topPixel = null;
         Pixel bottomPixel = null;
         Pixel[][] pixels = this.getPixels2D();
-        
+
         // left arm
-        for (int row = 159; row < mirrorPoint; row++)
+        for (int row = 159; row < mirrorPointA; row++)
         {
             for (int col = 103; col < 170; col++)
             {
                 topPixel = pixels[row][col];      
-                bottomPixel = pixels[mirrorPoint - row + mirrorPoint][col];
+                bottomPixel = pixels[mirrorPointA - row + mirrorPointA][col];
                 bottomPixel.setColor(topPixel.getColor());
             }
         }
-        
+
         int mirrorPointB = 198;
         Pixel topPixelB = null;
         Pixel bottomPixelB = null;
-        
+
         //right arm
         for (int row = 170; row < mirrorPointB; row++)
         {
@@ -336,7 +336,7 @@ public class Picture extends SimplePicture
             }
         }
     }
-    
+
     /** Mirror just part of a picture of a temple */
     public void mirrorGull()
     {
@@ -371,6 +371,29 @@ public class Picture extends SimplePicture
         Pixel[][] toPixels = this.getPixels2D();
         Pixel[][] fromPixels = fromPic.getPixels2D();
         for (int fromRow = 0, toRow = startRow; 
+        fromRow < fromPixels.length &&
+        toRow < toPixels.length; 
+        fromRow++, toRow++)
+        {
+            for (int fromCol = 0, toCol = startCol; 
+            fromCol < fromPixels[0].length &&
+            toCol < toPixels[0].length;  
+            fromCol++, toCol++)
+            {
+                fromPixel = fromPixels[fromRow][fromCol];
+                toPixel = toPixels[toRow][toCol];
+                toPixel.setColor(fromPixel.getColor());
+            }
+        }   
+    }
+
+    public void copyB(Picture fromPic, int startRow, int endRow, int startCol, int endCol)
+    {
+        Pixel fromPixel = null;
+        Pixel toPixel = null;
+        Pixel[][] toPixels = this.getPixels2D();
+        Pixel[][] fromPixels = fromPic.getPixels2D();
+        for (int fromRow = startRow, toRow = endRow; 
         fromRow < fromPixels.length &&
         toRow < toPixels.length; 
         fromRow++, toRow++)

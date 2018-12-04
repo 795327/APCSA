@@ -12,8 +12,8 @@ public class PrimeNumsRunner
        PrimeNums n = new PrimeNums();
        n.setListToNumber(123);
        n.printArrayList();
-       n.addNumberToList(50);
-       System.out.println("\nNumber that the ArrayList is converted to: " + n.getNumber());
+       n.addNumberToList(180);
+       
        n.printArrayList();
     }
 }

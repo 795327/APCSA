@@ -30,26 +30,39 @@ public class PrimeNums
             n /= 10;
         }
     }
-    
+
     public void addNumberToList(int n){ // adds n to ArrayList
-        number += n;
-        //reverse(nums); look for reverse method somewhere on slides
-        for (int i = nums.size() - 1; i >= nums.size(); i--){
-            number += nums.get(i) * (10 * i);
+        System.out.println("Number to be added to ArrayList: " + n);
+        for (int i = 0; i < nums.size(); i++){
+            number = 10 * number + nums.get(i);
         }
         
+        int newNum = number + n;
+        int a = 0;
         nums.clear();
-        
-        while (number > 0){
-            nums.add(0, number % 10);
-            number /= 10;
+        while (newNum > 0){
+            nums.add(0, newNum % 10);
+            newNum /= 10;
+            a += 1;
         }
     }
     
+    // ORIGINAL METHOD (ArrayList couldn't go over 999)
+    // tempNums.clear();
+    // // adds n its own ArrayList
+    // while (n > 0){
+    // tempNums.add(0, n % 10);
+    // n /= 10;
+    // }    
+
+    // for (int i = 0; i < tempNums.size(); i++){
+    // nums.set(i, tempNums.get(i) + nums.get(i));
+    // }
+
     public void addNumbers(ArrayList<Integer> n1, ArrayList<Integer> n2){ // adds each digit of n
-        
+
     }
-    
+
     /**
      * Additonal Methods
      */
@@ -58,8 +71,9 @@ public class PrimeNums
         for (int i = 0; i < nums.size(); i++){
             System.out.print(" " + nums.get(i));
         }
+        System.out.println();
     }
-    
+
     public int getNumber(){
         return number;
     }
