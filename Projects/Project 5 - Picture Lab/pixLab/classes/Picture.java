@@ -386,30 +386,7 @@ public class Picture extends SimplePicture
             }
         }   
     }
-
-    public void copyB(Picture fromPic, int startRow, int endRow, int startCol, int endCol)
-    {
-        Pixel fromPixel = null;
-        Pixel toPixel = null;
-        Pixel[][] toPixels = this.getPixels2D();
-        Pixel[][] fromPixels = fromPic.getPixels2D();
-        for (int fromRow = startRow, toRow = endRow; 
-        fromRow < fromPixels.length &&
-        toRow < toPixels.length; 
-        fromRow++, toRow++)
-        {
-            for (int fromCol = 0, toCol = startCol; 
-            fromCol < fromPixels[0].length &&
-            toCol < toPixels[0].length;  
-            fromCol++, toCol++)
-            {
-                fromPixel = fromPixels[fromRow][fromCol];
-                toPixel = toPixels[toRow][toCol];
-                toPixel.setColor(fromPixel.getColor());
-            }
-        }   
-    }
-
+    
     /** Method to create a collage of several pictures */
     public void createCollage()
     {
@@ -423,6 +400,64 @@ public class Picture extends SimplePicture
         this.copy(flowerNoBlue,300,0);
         this.copy(flower1,400,0);
         this.copy(flower2,500,0);
+        this.mirrorVertical();
+        this.write("collage.jpg");
+    }
+    
+    public void copyB(Picture fromPic, int startRow, int endRow, int startCol, int endCol)
+    {
+        Pixel fromPixel = null;
+        Pixel toPixel = null;
+        Pixel[][] toPixels = this.getPixels2D();
+        Pixel[][] fromPixels = fromPic.getPixels2D();
+        for (int fromRow = 0, toRow = startRow; 
+        fromRow < fromPixels.length &&
+        toRow < endRow; 
+        fromRow++, toRow++)
+        {
+            for (int fromCol = 0, toCol = startCol; 
+            fromCol < fromPixels[0].length &&
+            toCol < endCol;  
+            fromCol++, toCol++)
+            {
+                fromPixel = fromPixels[fromRow][fromCol];
+                toPixel = toPixels[toRow][toCol];
+                toPixel.setColor(fromPixel.getColor());
+            }
+        }   
+    }
+
+    /** Method to create a collage of several pictures */
+    public void createCollageB()
+    {
+        Picture flower1 = new Picture("flower1.jpg");
+        Picture flower2 = new Picture("flower2.jpg");
+        this.copyB(flower1, 0, 100, 0, 50);
+        this.copyB(flower2, 100, 200, 0, 75);
+        Picture flowerNoBlue = new Picture(flower2);
+        flowerNoBlue.zeroBlue();
+        this.copyB(flowerNoBlue, 200, 300, 0, 75);
+        this.mirrorVertical();
+        this.write("collage.jpg");
+    }
+    
+    /** Method to create an original collage of (at least 3) pictures 
+     *  copied 3 times w/ 3 different manipulations
+     *  and (at least 1) mirroring
+     */
+    public void myCollage()
+    {
+        Picture robot = new Picture("robot.jpg");
+        Picture robotGrayscale = new Picture("robot.jpg");
+        robotGrayscale.grayscale();
+        Picture robotNoGreen = new Picture("robot.jpg");
+        robotNoGreen.zeroGreen();
+        Picture robotNoBlue = new Picture("robot.jpg");
+        robotNoBlue.zeroBlue();
+        this.copyB(robot, 120, 345, 250, 450);
+        this.copyB(robotGrayscale, 80, 220, 120, 345);
+        this.copyB(robotNoGreen, 220, 340, 120, 345);
+        this.copyB(robotNoBlue, 300, 380, 170, 240);
         this.mirrorVertical();
         this.write("collage.jpg");
     }
