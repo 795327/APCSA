@@ -154,24 +154,24 @@ public class PictureTester
     public static void testEdgeDetection()
     {
         Picture swan = new Picture("swan.jpg");
-        swan.edgeDetection(10);
+        swan.edgeDetection(15);
         swan.explore();
     }
 
     /** Method to test edgeDetection2 */
     public static void testEdgeDetection2()
     {
-        Picture swan = new Picture("swan.jpg");
-        swan.edgeDetection2(22);
-        swan.explore();
+        Picture me = new Picture("myself.jpg");
+        me.edgeDetection2(20);
+        me.explore();
     }
-    
+
     /** Method to test edgeDetectionColor */
     public static void testEdgeDetectionColor()
     {
-        Picture me = new Picture("myself.jpg");
-        me.edgeDetectionColor(22);
-        me.explore();
+        Picture temple = new Picture("temple.jpg");
+        temple.edgeDetectionColor(20);
+        temple.explore();
     }
 
     /** Main method for testing.  Every class can have a main
@@ -201,7 +201,8 @@ public class PictureTester
         // testMyCollage();
         //testCopy();
         // testEdgeDetection();
-        testEdgeDetection2();
+        testEdgeDetection2(); 
+        // testEdgeDetectionColor();
         //testChromakey();
         //testEncodeAndDecode();
         //testGetCountRedOverValue(250);

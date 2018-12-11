@@ -463,40 +463,9 @@ public class Picture extends SimplePicture
     }
 
     /** Method to show large changes in color 
-     * @param edgeDist the distance for finding edges
+     * @param edgeDist the distance for finding edges w/ top, left, right, and bottom pixels
      */
     public void edgeDetection(int edgeDist)
-    {
-        Pixel leftPixel = null;
-        Pixel rightPixel = null;
-        Pixel topPixel = null;
-        Pixel bottomPixel = null;
-        Pixel[][] pixels = this.getPixels2D();
-        Color rightColor = null;
-        Color bottomColor = null;
-        for (int row = 0; row < pixels.length - 1; row++)
-        {
-            for (int col = 0; 
-            col < pixels[0].length-1; col++)
-            {
-                leftPixel = pixels[row][col];
-                rightPixel = pixels[row][col+1];
-                topPixel = pixels[row][col];
-                bottomPixel = pixels[row+1][col];
-                rightColor = rightPixel.getColor();
-                if (leftPixel.colorDistance(rightColor) > 
-                edgeDist)
-                    leftPixel.setColor(Color.BLACK);
-                else
-                    leftPixel.setColor(Color.WHITE);
-            }
-        }
-    }
-    
-    /** Method to show large changes in color 
-     * @param edgeDist the distance for finding edges
-     */
-    public void edgeDetection2(int edgeDist)
     {
         Pixel leftPixel = null;
         Pixel rightPixel = null;
@@ -527,7 +496,50 @@ public class Picture extends SimplePicture
     }
     
     /** Method to show large changes in color 
-     * @param edgeDist the distance for finding edges
+     * @param edgeDist the distance for finding edges w/ top, left, right, bottom, 
+     * and diagonal pixels w/ picture of me
+     */
+    public void edgeDetection2(int edgeDist)
+    {
+        Pixel leftPixel = null;
+        Pixel rightPixel = null;
+        Pixel topPixel = null;
+        Pixel bottomPixel = null;
+        Pixel topLeftPixel = null;
+        Pixel bottomRightPixel = null;
+        Pixel[][] pixels = this.getPixels2D();
+        Color rightColor = null;
+        Color bottomColor = null;
+        Color bottomRightColor = null;
+        for (int row = 0; row < pixels.length - 1; row++)
+        {
+            for (int col = 0; 
+            col < pixels[0].length-1; col++)
+            {
+                leftPixel = pixels[row][col];
+                rightPixel = pixels[row][col+1];
+                topPixel = pixels[row][col];
+                bottomPixel = pixels[row+1][col];
+                topLeftPixel = pixels[row][col];
+                bottomRightPixel = pixels[row+1][col+1];
+                rightColor = rightPixel.getColor();
+                bottomColor = bottomPixel.getColor();
+                bottomRightColor = bottomRightPixel.getColor();
+                if (leftPixel.colorDistance(rightColor) > 
+                edgeDist || topPixel.colorDistance(bottomColor) > 
+                edgeDist || topLeftPixel.colorDistance(bottomRightColor) > 
+                edgeDist){
+                    leftPixel.setColor(Color.BLACK);
+                } else{
+                    leftPixel.setColor(Color.WHITE);
+                }
+            }
+        }
+    }
+    
+    /** Method to show large changes in color 
+     * @param edgeDist the distance for finding edges w/ top, left, right, bottom, 
+     * and diagonal pixels w/ color
      */
     public void edgeDetectionColor(int edgeDist)
     {
@@ -557,11 +569,14 @@ public class Picture extends SimplePicture
                 bottomRightColor = bottomRightPixel.getColor();
                 if (leftPixel.colorDistance(rightColor) > 
                 edgeDist || topPixel.colorDistance(bottomColor) > 
-                edgeDist || bottomRightPixel.colorDistance(bottomRightColor) > 
-                edgeDist)
+                edgeDist || topLeftPixel.colorDistance(bottomRightColor) > 
+                edgeDist){
                     leftPixel.setColor(Color.BLACK);
-                else
-                    leftPixel.setColor(Color.WHITE);
+                } else {
+                    leftPixel.setRed(255);
+                    leftPixel.setGreen(55);
+                    leftPixel.setBlue(132);
+                }
             }
         }
     }
