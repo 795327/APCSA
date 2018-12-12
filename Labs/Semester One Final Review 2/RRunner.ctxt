@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=RRunner
+comment1.params=
+comment1.target=void\ main()
+comment2.params=levels\ maxLevel
+comment2.target=int\ adjustMaxMin(java.util.ArrayList,\ int)
+comment3.params=str
+comment3.target=java.lang.String\ getRandomResponse(java.lang.String[])
+comment4.params=x
+comment4.target=java.lang.String\ go(int)
+numComments=5
