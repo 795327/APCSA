@@ -170,7 +170,7 @@ public class PictureTester
     public static void testEdgeDetectionColor()
     {
         Picture temple = new Picture("temple.jpg");
-        temple.edgeDetectionColor(20);
+        temple.edgeDetectionColor(25);
         temple.explore();
     }
 

@@ -35,7 +35,7 @@ public class RRunner{
         }
         System.out.println("the total is:" + total);
 
-        String[] randStrings = {	"yes", 
+        String[] randStrings = {    "yes", 
                 "no", 
                 "maybe", 
                 "perhaps", 
@@ -44,6 +44,25 @@ public class RRunner{
         String response = getRandomResponse(randStrings);
         System.out.println(getRandomResponse(randStrings));
 
+        int[][] nums = new int[10][10];
+        int numEvens = loadNums(nums);
+        System.out.println(loadNums(nums));
+        System.out.println((int)(Math.random()*10) + 1);
+    }
+
+    public static int loadNums(int[][] n){
+        int evens = 0;
+        for (int r = 0; r < n.length; r++){ // length for array has no '()'
+            for (int c = 0; c < n[r].length; c++){
+                int randNum = (int)(Math.random()*10) + 1; // 10 is amount of numbers that are to be included
+                                                           // 1 is the minimum of numbers to be included
+                n[r][c] = randNum;
+                if (randNum % 2 == 0){
+                    evens++;
+                }
+            }
+        }
+        return evens;
     }
 
     public int adjustMaxMin(ArrayList<Integer> levels, int maxLevel){
@@ -62,7 +81,7 @@ public class RRunner{
     }
 
     public static String getRandomResponse(String[] str){
-        return str[(int)(Math.random()*4)];
+        return str[(int)(Math.random()*5)]; // last number (number multiplied a.k.a. 5 here) not included 
     }
 
     public static String go(int x){

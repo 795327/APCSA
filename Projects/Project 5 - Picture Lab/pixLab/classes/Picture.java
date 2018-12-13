@@ -571,11 +571,30 @@ public class Picture extends SimplePicture
                 edgeDist || topPixel.colorDistance(bottomColor) > 
                 edgeDist || topLeftPixel.colorDistance(bottomRightColor) > 
                 edgeDist){
-                    leftPixel.setColor(Color.BLACK);
+                    if (col < 250 && row < 159){
+                        leftPixel.setColor(Color.PINK);
+                    }
+                    if (col >= 250 && row < 234){
+                        leftPixel.setColor(Color.RED);
+                    }
+                    if (col < 250 && row >= 159 && row < 279){
+                        leftPixel.setColor(Color.BLUE);
+                    }
+                    if (col >= 250 && row < 255 && row >= 234){
+                        leftPixel.setColor(Color.ORANGE);
+                    }
+                    if (col < 290 && row >= 279){
+                        leftPixel.setRed(44);
+                        leftPixel.setGreen(170);
+                        leftPixel.setBlue(69);
+                    }
+                    if (col >= 290 && row >= 255){
+                        leftPixel.setRed(214);
+                        leftPixel.setGreen(204);
+                        leftPixel.setBlue(66);
+                    }
                 } else {
-                    leftPixel.setRed(255);
-                    leftPixel.setGreen(55);
-                    leftPixel.setBlue(132);
+                    leftPixel.setColor(Color.WHITE);
                 }
             }
         }
